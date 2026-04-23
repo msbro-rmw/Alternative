@@ -9,8 +9,8 @@ Usage:
 import asyncio
 from pyrogram import Client
 
-API_ID   = 123456          # <-- Same as in bot/main.py
-API_HASH = "your_api_hash_here"  # <-- Same as in bot/main.py
+API_ID   = 38498066          # <-- Same as in bot/main.py
+API_HASH = "c9696114751feacdeb1b4487f5839a1a"  # <-- Same as in bot/main.py
 
 
 async def generate():
