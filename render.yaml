@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: alternative-extractor-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: SESSION_STRING
+        sync: false
+      - key: PORT
+        value: 8080
+    autoDeploy: true
