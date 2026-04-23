@@ -14,8 +14,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ─── Config ────────────────────────────────────────────────────────────────────
-API_ID   = 123456               # <-- Apna API ID yahan dalo
-API_HASH = "your_api_hash_here" # <-- Apna API HASH yahan dalo
+API_ID   = 38498066               # <-- Apna API ID yahan dalo
+API_HASH = "c9696114751feacdeb1b4487f5839a1a" # <-- Apna API HASH yahan dalo
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
 UPLOAD_PILOT_BOT = "UploadPilotbot"
