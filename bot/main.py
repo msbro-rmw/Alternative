@@ -31,8 +31,8 @@ bot = Client(
 userbot = Client(
     "userbot_session",
     api_id=API_ID,
-    api_hash=API_HASH,
-    session_string="BQJLbxIAbklGg_gVWqeTVVuFwt7wSSGqLechJ-F_IoS12bTYBvLPl2dBRfZWH2SNAKrlZxogIK-bC_ZMUJfGjVwwFJTcotQXK8sjJyYutHXyFhTHZxRQo_aLeLYeSi-49y1aQmeRh5myJ8LqQEQWyE2CfEHn4_DFhKyZiWbA14L-Niohx-2__5IM9OMY8rSwXfGHm88GTNkTexp2T5cQYbOcToPYKkMAhcruREn9Xy8-XD-zZE6V7HauyRx-iXimaokxjOnfa8IvYGw1y5K1Z3h5q0WmuMcsKDOHsJLOxdj5kSBtYKWIm03UpdgqkbqhFXNQKmS0uHXvxaNiBJUPXLh9AqsVlAAAAAIGyXqtAA",
+    api_hash=API
+    session_string="BQJLbxIAf7KDbunDXVYhHAgPOEmxPbHp2KGMH4zhUUsSpzFeEBGFyWVRsK8kGdxvmA-setW6P5X_R2ZKYPkPo0q8wY_svgDf5JV4EqbCxy60Hf819aehRhKaH9VFKPs5mwe3YkTFTOoaRzLV-8GTNSAMQwk6xY6pcP4-5DshynIbuZbIciwylAGl5naMtaRd1sQqyv3kcaZQ_EtQBTHm1xk7Vm098_FkxOWmHwVHJIrGrhZ7St2GDJIOXsTYrM17354qLbBkYzxvoz-G-mMgDWFXgRqZFinch5Aizpm56hpkK9eq6Ja-Tp5VoXOpQ3b2VhxiCqQjF-7LHqpZXoH4f8KIvWvM_wAAAAIGyXqtAA",
 )
 
 # ─── Queue ─────────────────────────────────────────────────────────────────────
