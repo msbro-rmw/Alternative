@@ -14,9 +14,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ─── Config ────────────────────────────────────────────────────────────────────
-API_ID   = 38498066               # <-- Apna API ID yahan dalo
-API_HASH = "c9696114751feacdeb1b4487f5839a1a" # <-- Apna API HASH yahan dalo
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
+API_ID   = 38498066
+API_HASH = "c9696114751feacdeb1b4487f5839a1a"
+BOT_TOKEN = "8625910655:AAGy2ZjsScck70Taw90_OwxyiLpjO37ktVI"
 
 UPLOAD_PILOT_BOT = "UploadPilotbot"
 
@@ -32,7 +32,7 @@ userbot = Client(
     "userbot_session",
     api_id=API_ID,
     api_hash=API_HASH,
-    session_string=os.environ.get("SESSION_STRING"),
+    session_string="BQJLbxIAbklGg_gVWqeTVVuFwt7wSSGqLechJ-F_IoS12bTYBvLPl2dBRfZWH2SNAKrlZxogIK-bC_ZMUJfGjVwwFJTcotQXK8sjJyYutHXyFhTHZxRQo_aLeLYeSi-49y1aQmeRh5myJ8LqQEQWyE2CfEHn4_DFhKyZiWbA14L-Niohx-2__5IM9OMY8rSwXfGHm88GTNkTexp2T5cQYbOcToPYKkMAhcruREn9Xy8-XD-zZE6V7HauyRx-iXimaokxjOnfa8IvYGw1y5K1Z3h5q0WmuMcsKDOHsJLOxdj5kSBtYKWIm03UpdgqkbqhFXNQKmS0uHXvxaNiBJUPXLh9AqsVlAAAAAIGyXqtAA",
 )
 
 # ─── Queue ─────────────────────────────────────────────────────────────────────
@@ -59,7 +59,7 @@ def extract_first_file_id(message: Message) -> str | None:
                 m = pattern.search(button.url)
                 if m:
                     logger.info(f"First button URL found: {button.url}")
-                    return m.group(1)  # Sirf pehla milte hi return
+                    return m.group(1)
 
     return None
 
@@ -70,7 +70,7 @@ async def fetch_file_from_uploadpilot(file_start_param: str) -> Message | None:
         await userbot.send_message(UPLOAD_PILOT_BOT, f"/start {file_start_param}")
         logger.info(f"Sent /start {file_start_param} to UploadPilotBot")
 
-        await asyncio.sleep(3)  # 3s kaafi fast hai
+        await asyncio.sleep(3)
 
         async for msg in userbot.get_chat_history(UPLOAD_PILOT_BOT, limit=1):
             if msg.from_user and msg.from_user.username and \
@@ -124,21 +124,13 @@ async def process_queue():
 
 # ─── Bot Handlers ──────────────────────────────────────────────────────────────
 
-# NO group filter — koi bhi group/DM/channel mein use ho sakta hai
 @bot.on_message(filters.forwarded)
 async def handle_forwarded_message(client: Client, message: Message):
-    """
-    Koi bhi forwarded message. Sirf PEHLE button ka file_id lo.
-    No restrictions — koi bhi use kar sakta hai.
-    """
     file_id = extract_first_file_id(message)
-
     if not file_id:
         return
-
     logger.info(f"Queuing: {file_id} from chat {message.chat.id}")
     task_queue.append((message.chat.id, message.id, file_id))
-
     global processing
     if not processing:
         asyncio.create_task(process_queue())
