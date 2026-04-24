@@ -30,15 +30,17 @@ def run_flask():
 async def main():
     flask_thread = threading.Thread(target=run_flask, daemon=True)
     flask_thread.start()
+    logger.info("✅ Flask started")
 
+    logger.info("⏳ Starting userbot...")
     await userbot.start()
     logger.info("✅ Userbot started")
 
+    logger.info("⏳ Starting bot...")
     await bot.start()
     logger.info("✅ Bot started")
-    logger.info("🚀 Running! Press Ctrl+C to stop.")
+    logger.info("🚀 Running!")
 
-    # Sirf alive raho — stop mat karo SIGTERM pe
     while True:
         await asyncio.sleep(60)
 
